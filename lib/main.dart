@@ -27,14 +27,18 @@ class gkeapl extends StatelessWidget {
                     decoration: InputDecoration(
                      prefixIcon: Icon(Icons.account_box),
                       hintText: "Enter username",
-                        border: OutlineInputBorder()),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        )),
                   ),
                   SizedBox(height: 20.0,),
                   Text("PASSWORD"),
                   TextField(
                     controller: password,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
                       prefixIcon: Icon(Icons.lock),
                       hintText: "Enter password"
                     ),
@@ -50,7 +54,17 @@ class gkeapl extends StatelessWidget {
                     },
                     color: Colors.lightBlue,
                     child: Text("LOGIN"),
-                  )
+                  ),
+                  SizedBox(height: 10.0,),
+                  Container(
+                    height: 50.0,
+                    width:  150.0,
+                    decoration: BoxDecoration(
+                      color: Colors.cyanAccent,
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    child: Center(child: Text("Proceed")),
+                  ),
                 ],
               ),
       ),
