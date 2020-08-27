@@ -1,66 +1,92 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/pages/r_page.dart';
 
-class Register extends StatelessWidget {
+class Rage extends StatelessWidget {
   TextEditingController uname = TextEditingController();
-  TextEditingController password =TextEditingController();
-  TextEditingController num3 =TextEditingController();
+  TextEditingController pass = TextEditingController();
+  TextEditingController cnum = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(15.0),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("REGISTRATION"),
+        ),
+        body: Container(
+          padding: EdgeInsets.all(20.0),
           child: Column(
             children: [
-              SizedBox(height: 200.0,),
+              SizedBox(height: 20.0,),
               TextField(
                 controller: uname,
                 decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.account_box),
-                    hintText: "Enter username",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    )),
+                  prefixIcon: Icon(Icons.account_box),
+                  hintText: "Name",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  )
+                ),
               ),
               SizedBox(height: 20.0,),
               TextField(
-                controller: password,
+                controller: pass,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    prefixIcon: Icon(Icons.lock),
-                    hintText: "Enter password"
+                  prefixIcon: Icon(Icons.security),
+                  hintText: "Password",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  )
                 ),
               ),
               SizedBox(height: 20.0,),
-              RaisedButton(
-                onPressed: (){
-                 print ("logged in");
-                },
-                color: Colors.cyanAccent,
-                child: Text("LOGIN"),
-              ),
-              SizedBox(height: 10.0,),
-              GestureDetector(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder:(context)=>Rage()));
-                  print("PROCEEDED");
-                },
-                child: Container(
-                  height: 50.0,
-                  width:  150.0,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: [Colors.black26,Colors.cyanAccent,Colors.black26]),
+              TextField(
+                controller: cnum,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.phone),
+                  hintText: "Contact number",
+                  border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: Center(child: Text("Signup")),
+                  )
                 ),
               ),
+              SizedBox(height: 20.0,),
+              GestureDetector(
+                onTap: (){
+                  var name = uname.text;
+                  var passw = pass.text;
+                  var phone = cnum.text;
+                  print(name);
+                  print(passw);
+                  print(phone);
+                  print("Registered");
+                },
+                child: Container(
+                  height: 60.0,
+                  width: 280.0,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [Colors.lightBlue, Colors.pink]),
+                    borderRadius: BorderRadius.circular(20.0)
+                  ),
+                  child: Center(child: Text("Register")),
+                ),
+              ),
+              SizedBox(height: 20.0,),
+              GestureDetector(
+                onTap: (){ Navigator.of(context).pop(context);
+                },
+                child: Container(
+                  width: 250.0,
+                  height: 50.0,
+                  child: Center(child: Text("Back")),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.0),
+                    gradient: LinearGradient(colors: [Colors.black26,Colors.pink,Colors.black26]),
+                  ),
+                ),
+              )
             ],
           ),
         ),
-      );
+      ),
+    );
   }
 }
